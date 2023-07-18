@@ -39,6 +39,8 @@ $hotels = [
     ],
 
 ];
+foreach ($hotels as  $hotel) {
+}
 
 ?>
 
@@ -48,27 +50,38 @@ $hotels = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Hotel</title>
 </head>
 
 <body>
 
-    <ul>
-        <?php foreach ($hotels as $hotel) : ?>
-            <li>
-                <span><?= $hotel['name'] ?> -</span>
-                <span><?= $hotel['description'] ?> -</span>
-                <span><?= $hotel['parking'] ?> -</span>
-                <span><?= $hotel['vote'] ?>- </span>
-                <span><?= $hotel['distance_to_center'] ?> -</span>
 
-            </li>
-        <?php endforeach ?>
-    </ul>
+    <div class="container">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <?php foreach ($hotel as  $key => $value) : ?>
+                        <th scope="col"><?= $key ?></th>
+
+                    <?php endforeach ?>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr <?php foreach ($hotels as  $hotel) : ?>>
+                    <?php foreach ($hotel as $value) : ?>
+                        <td scope="col"><?= $value ?></td>
+
+                    <?php endforeach ?>
+                </tr <?php endforeach ?>>
+
+            </tbody>
+        </table>
 
 
-
-
+    </div>
 </body>
 
 </html>
